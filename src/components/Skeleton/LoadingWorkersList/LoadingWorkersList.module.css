@@ -1,0 +1,29 @@
+.loadingWorkersList{
+    margin-top:22px;
+}
+.loadingWorker{
+    display:flex;
+    margin-bottom:24px;
+}
+.imageWorker{
+    width: 72px;
+    height: 72px;
+    background: linear-gradient(90deg, #F3F3F6 0%, #FAFAFA 100%);
+    border-radius: 50px;
+}
+.infoWorker{
+    margin: 16px 16px;
+}
+.name{
+    width: 144px;
+    height: 16px;
+    background: linear-gradient(90deg, #F3F3F6 0%, #FAFAFA 100%);
+    border-radius: 50px;
+}
+.department{
+    margin:8px 0px;
+    width: 80px;
+    height: 12px;
+    background: linear-gradient(90deg, #F3F3F6 0%, #FAFAFA 100%);
+    border-radius: 50px;
+}

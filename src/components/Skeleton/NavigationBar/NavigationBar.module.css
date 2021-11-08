@@ -1,0 +1,8 @@
+.barWrapper{
+    position:relative;
+    display: block;
+    padding: 0px;
+    height: 152px;
+    background: #FFFFFF;
+    border-bottom: solid 0.33px #C3C3C6;
+}

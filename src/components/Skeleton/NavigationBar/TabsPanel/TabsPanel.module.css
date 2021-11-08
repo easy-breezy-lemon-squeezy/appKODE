@@ -1,0 +1,19 @@
+.panel{
+    display: flex;
+    padding: 0px;
+    height: 36px;
+    width:1248px;
+    margin: 19px auto 0px auto;
+}
+
+a{
+    text-decoration: none;
+    list-style-type: none;
+    color: #97979B;
+    padding:0px 12px;
+    height: 36px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    font-style: normal;
+}

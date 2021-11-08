@@ -1,0 +1,7 @@
+.appWrapper{
+    display:block;
+}
+.appWrapperContent{
+    display:block;
+    width:1280px;
+}

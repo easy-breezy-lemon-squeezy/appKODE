@@ -1,0 +1,52 @@
+.worker img{
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+}
+.workerWrapper{
+    margin-bottom: 12px;
+    display:flex;
+}
+.infoWorker{
+    margin: 16px 16px;
+}
+.name{
+    display:flex;
+    height: 16px;
+}
+.name h3{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #050510;
+    margin: 0px 0px;
+    align-items: center;
+    align-self: flex-end;
+}
+.name p{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: #97979B;
+    margin: 0px 4px;
+    align-items: center;
+    align-self: flex-end;
+}
+.department{
+    margin-top: 3px;
+}
+.department p{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 16px;
+    color: #55555C;
+    margin: 0px 0px;
+    align-self: center;
+    flex: none;
+    order: 1;
+    align-self: center;
+    flex-grow: 0;
+}
