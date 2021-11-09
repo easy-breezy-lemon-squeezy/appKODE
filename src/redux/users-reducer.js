@@ -5,7 +5,8 @@ const TOGGLE_IS_ERROR = 'TOGGLE_IS_ERROR';
 
 let initialState = {
     users:[],
-    isError: false
+    isError: false,
+    profile: "null"
 }
 const usersReducer = (state = initialState, action) => {
     switch (action.type){

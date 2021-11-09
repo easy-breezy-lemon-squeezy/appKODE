@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "./Search.module.css"
-import {SearchInput} from "../../../common/FormsControls/FormsControls";
+import {SearchInput} from "../../../common/Forms/Forms";
 function Search() {
 
     return (

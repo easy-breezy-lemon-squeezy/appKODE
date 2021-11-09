@@ -1,7 +1,7 @@
 import './App.css';
-import Skeleton from "./components/Skeleton/Skeleton";
 import {BrowserRouter} from "react-router-dom";
 import SkeletonContainer from "./components/Skeleton/SkeletonContainer";
+import React from "react";
 
 function App() {
 

@@ -10,7 +10,6 @@ class SkeletonContainer extends React.Component{
     }
 
     render (){
-
         return (
                 <Skeleton users={this.props.users} isError={this.props.isError}/>
         );
