@@ -5,7 +5,9 @@ import LoadingWorkersList from "./LoadingWorkersList/LoadingWorkersList";
 import WorkersList from "./WorkersList/WorkersList";
 import CriticalError from "./CriticalError/CriticalError";
 
+
 function Skeleton(props) {
+
     return (
         <div>
             <div className={styles.appWrapper}>
