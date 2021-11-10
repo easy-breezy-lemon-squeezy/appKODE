@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Forms.module.css";
-import filter from "./../../../images/filtr.svg";
-import search from "./../../../images/search.svg";
+import filter from "../../../images/icons/filtr.svg";
+import search from "../../../images/icons/search.svg";
 
 export const SearchInput = (props) => {
 

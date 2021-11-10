@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from "./Worker.module.css";
 import {NavLink} from "react-router-dom";
+
 function Worker(props) {
     return (
         <div className={styles.worker}>

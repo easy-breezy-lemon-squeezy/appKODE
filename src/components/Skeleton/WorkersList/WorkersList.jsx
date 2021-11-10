@@ -10,7 +10,8 @@ const AllUsers = (props) => {
 const FilterUsers = (props) => {
     return (<div>{props.users.filter(item =>
         item.department.includes(props.department)).map(item =>
-        <Worker key={item.id} user={item}/>)} </div>)
+        <Worker key={item.id} user={item}/>
+        )} </div>)
 }
 
 function WorkersList(props) {

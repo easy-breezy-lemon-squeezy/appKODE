@@ -1,6 +1,8 @@
 import styles from "./Profole.module.css";
 import React from "react";
-import right from "./../../images/right.svg";
+import right from "../../images/icons/right.svg";
+import number from "../../images/icons/number.svg";
+import favorite from "../../images/icons/favorite.svg";
 import rectangle from "./../../images/rectangle.png";
 function Profile(props) {
     return (
@@ -12,19 +14,21 @@ function Profile(props) {
                 <div className={styles.infoProfile}>
                     <img src={rectangle} />
                     <div className={styles.nameProfile}>
-                        <h3>Алиса Иванова</h3><p>al</p>
+                        <h3>Максим лох<span>al</span></h3>
                     </div>
                     <div className={styles.departmentProfile}>
-                        <p>Designer</p>
+                        <p>Киберкотлета</p>
                     </div>
                 </div>
             </div>
             <div className={styles.contactsBlock}>
                 <div className={styles.birthday}>
-                    5 июня 1996
+                    <img src={favorite}/>
+                    <p>5 июня 1996</p>
+                    <div className={styles.age}><p>24 года</p></div>
                 </div>
                 <div className={styles.number}>
-                    +7 (999) 900 90 90
+                    <img src={number}/><p>+7 (999) 900 90 90</p>
                 </div>
             </div>
         </div>
