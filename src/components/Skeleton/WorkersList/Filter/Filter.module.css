@@ -1,0 +1,21 @@
+.filterWrapper{
+    display:block;
+    min-width: 1280px;
+    height:auto;
+    position:absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom:0px;
+    background-color:rgba(5, 5, 16, 0.16);;
+}
+.window{
+    padding: 0px 0px 8px;
+    position: absolute;
+    width: 373px;
+    height: 192px;
+    left: calc(50% - 373px/2 + 0.5px);
+    top: calc(50% - 192px/2);
+    background: #FFFFFF;
+    border-radius: 20px;
+}

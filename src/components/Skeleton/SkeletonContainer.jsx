@@ -1,7 +1,7 @@
 import React from 'react';
 import Skeleton from "./Skeleton";
 import {connect} from "react-redux";
-import {getUsers} from "../../redux/users-reducer";
+import {getUsers, setUserProfile} from "../../redux/users-reducer";
 
 
 class SkeletonContainer extends React.Component{
@@ -11,7 +11,8 @@ class SkeletonContainer extends React.Component{
 
     render (){
         return (
-                <Skeleton users={this.props.users} isError={this.props.isError}/>
+            <Skeleton users={this.props.users} isError={this.props.isError} profile={this.props.profile}
+                      setUserProfile={this.props.setUserProfile}/>
         );
     }
 }
@@ -20,8 +21,9 @@ class SkeletonContainer extends React.Component{
 let mapStateToProps = (state) => {
     return {
         users: state.usersPage.users,
-        isError: state.usersPage.isError
+        isError: state.usersPage.isError,
+        profile: state.usersPage.profile
     }
 }
 
-export default connect(mapStateToProps, {getUsers})(SkeletonContainer);
+export default connect(mapStateToProps, {getUsers, setUserProfile})(SkeletonContainer);

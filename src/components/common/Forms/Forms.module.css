@@ -21,6 +21,9 @@
     text-align: right;
     margin-left:auto;
 }
+.filter a{
+  border-bottom: none;
+}
 .filter img{
     padding:4px 0px;
     height:12px;

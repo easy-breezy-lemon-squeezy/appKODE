@@ -11,9 +11,12 @@ function Skeleton(props) {
             <div className={styles.appWrapper}>
                 <NavigationBar/>
                 <div className={styles.appWrapperContent}>
+
                     {props.isError
                         ? <CriticalError/>
-                        : ((props.users.length === 0) ? <LoadingWorkersList/> : (<WorkersList users={props.users}/>))
+                        : ((props.users.length === 0) ? <LoadingWorkersList/> : (<WorkersList users={props.users}
+                          profile={props.profile} setUserProfile={props.setUserProfile}
+                        />))
                     }
 
                 </div>

@@ -4,7 +4,7 @@ import styles from "./LoadingWorkersList.module.css";
 function LoadingWorkersList() {
     let outList = [];
     for (let i = 0; i < 7; i++) {
-        outList.push(<LoadingWorker/>);
+        outList.push(<LoadingWorker key={i}/>);
     }
     return (
         <div className={styles.loadingWorkersList}>

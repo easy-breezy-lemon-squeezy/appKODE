@@ -3,12 +3,14 @@ import styles from "./Worker.module.css";
 import {NavLink} from "react-router-dom";
 
 function Worker(props) {
+
     return (
+
         <div className={styles.worker}>
             <div className={styles.workerWrapper} >
                 <div className={styles.imageWorker}>
-                    <NavLink to="/profile">
-                          <img src={props.user.avatarUrl}/>
+                    <NavLink to="/profile" onClick={() => props.setUserProfile(props.user)}>
+                        <img src={props.user.avatarUrl}/>
                     </NavLink>
                 </div>
                 <div className={styles.infoWorker}>
