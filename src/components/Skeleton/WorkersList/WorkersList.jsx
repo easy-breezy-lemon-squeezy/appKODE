@@ -3,7 +3,7 @@ import styles from "./WorkersList.module.css";
 import Worker from "./Worker/Worker";
 import {Route, Routes} from "react-router-dom";
 import Profile from "../Profile/Profile";
-import Filter from "./Filter/Filter";
+import Filter from "../../common/Forms/Filter/Filter";
 
 const AllUsers = (props) => {
     return (<div>{props.users.map(u => <Worker key={u.id} user={u} setUserProfile={props.setUserProfile}/>)}</div>)
@@ -18,7 +18,7 @@ const FilterUsers = (props) => {
 function WorkersList(props) {
     const users = props.users.items;
 
-    const [modalActive, setModalActive] = useState(true);
+
 
     return (
         <div className={styles.workerList}>
@@ -38,8 +38,8 @@ function WorkersList(props) {
                 <Route path="/pr" element={<FilterUsers users={users} department={'pr'} setUserProfile={props.setUserProfile}/>}/>
                 <Route path="/profile" element={<Profile profile={props.profile}/>}/>
             </Routes>
-            {/**/}
-            <Filter active={modalActive} setActive={setModalActive}/>
+
+
         </div>
     );
 }

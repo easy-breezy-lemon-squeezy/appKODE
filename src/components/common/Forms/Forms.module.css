@@ -20,6 +20,7 @@
     height:20px;
     text-align: right;
     margin-left:auto;
+    cursor: pointer;
 }
 .filter a{
   border-bottom: none;
@@ -64,4 +65,10 @@
     display: flex;
     align-items: center;
     padding: 0px 8px;
+}
+.filterWindow{
+    display:none;
+}
+.filterWindow.active{
+    display:block;
 }

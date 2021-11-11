@@ -1,13 +1,13 @@
 import React from 'react';
 import styles from "./Filter.module.css";
-import close from  "./../../../../images/icons/close.svg"
+import close from "../../../../images/icons/close.svg"
 
-function Filter({active, setActive}) {
+function Filter({setActive}) {
     return (
         <div className={styles.filter}>
             <div className={styles.window}>
                 <div className={styles.headerFilter}>
-                    <h3>Сортировка</h3><div className={styles.closeCircle}><img src={close}/></div>
+                    <h3>Сортировка</h3><div onClick={() => setActive(false)} className={styles.closeCircle}><img src={close}/></div>
                 </div>
                 <div className={styles.typesFilter}>
                     <div className={styles.formRadio}>
