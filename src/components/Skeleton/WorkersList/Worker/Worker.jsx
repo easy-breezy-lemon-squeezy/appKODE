@@ -12,15 +12,19 @@ function Worker(props) {
                     <NavLink to="/profile" onClick={() => props.setUserProfile(props.user)}>
                         <img src={props.user.avatarUrl}/>
                     </NavLink>
+
                 </div>
                 <div className={styles.infoWorker}>
-                    <div className={styles.name}>
-                        <h3>{props.user.firstName} {props.user.lastName} </h3><p>{(props.user.userTag).toLowerCase()}</p>
-                    </div>
+                    <NavLink to="/profile" onClick={() => props.setUserProfile(props.user)}>
+                        <div className={styles.name}>
+                            <h3>{props.user.firstName} {props.user.lastName} </h3><p>{(props.user.userTag).toLowerCase()}</p>
+                        </div>
+                    </NavLink>
                     <div className={styles.department}>
                         <p>{props.user.department} </p>
                     </div>
                 </div>
+
             </div>
         </div>
     );

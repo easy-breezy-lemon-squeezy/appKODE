@@ -1,11 +1,17 @@
 import styles from "./Profile.module.css";
-import React, {useEffect, useState} from "react";
+import React from "react";
 import right from "../../../images/icons/right.svg";
 import number from "../../../images/icons/number.svg";
 import favorite from "../../../images/icons/favorite.svg";
-import {NavLink} from "react-router-dom";
+import {NavLink,Navigate} from "react-router-dom";
 
 function Profile(props) {
+
+    if (props.profile.length === 0){
+        return (
+            <><Navigate to="/" /></>
+        )
+    }
     return (
         <div className={styles.profileWrapper}>
             <div className={styles.profileHeader}>

@@ -7,17 +7,19 @@ import CriticalError from "./CriticalError/CriticalError";
 
 
 function Skeleton(props) {
-
     return (
         <div>
             <div className={styles.appWrapper}>
-                <NavigationBar/>
+                <NavigationBar activateModalWindow={props.activateModalWindow}/>
                 <div className={styles.appWrapperContent}>
 
                     {props.isError
                         ? <CriticalError/>
                         : ((props.users.length === 0) ? <LoadingWorkersList/> : (<WorkersList users={props.users}
                           profile={props.profile} setUserProfile={props.setUserProfile}
+                          isAlphabetically={props.isAlphabetically}
+                          isActivateModalWindow={props.isActivateModalWindow}
+                          deactivateModalWindow={props.deactivateModalWindow}
                         />))
                     }
 

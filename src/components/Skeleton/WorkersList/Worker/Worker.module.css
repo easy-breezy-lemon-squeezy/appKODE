@@ -3,12 +3,19 @@
     height: 72px;
     border-radius: 50%;
 }
-.workerWrapper{
-    margin-bottom: 12px;
-    display:flex;
+.worker a{
+    text-decoration: none;
 }
+.workerWrapper{
+    width:1280px;
+    height:72px;
+    margin-bottom: 12px;
+    display: flex;
+    position: relative;
+}
+
 .infoWorker{
-    margin: 16px 16px;
+    margin: 16px;
 }
 .name{
     display:flex;
@@ -36,6 +43,9 @@
 }
 .department{
     margin-top: 3px;
+    height: 16px;
+    width:100px;
+    display: block;
 }
 .department p{
     font-style: normal;
@@ -43,10 +53,9 @@
     font-size: 13px;
     line-height: 16px;
     color: #55555C;
-    margin: 0px 0px;
+    margin: 0px;
     align-self: center;
     flex: none;
     order: 1;
-    align-self: center;
     flex-grow: 0;
 }

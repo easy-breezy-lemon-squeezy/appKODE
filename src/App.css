@@ -1,3 +1,6 @@
+html {
+  overflow-y: overlay;
+}
 .App {
   width:1280px;
   display: block;
