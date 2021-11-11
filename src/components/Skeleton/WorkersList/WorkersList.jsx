@@ -38,8 +38,8 @@ function WorkersList(props) {
                 <Route path="/pr" element={<FilterUsers users={users} department={'pr'} setUserProfile={props.setUserProfile}/>}/>
                 <Route path="/profile" element={<Profile profile={props.profile}/>}/>
             </Routes>
-            {/*<Filter active={modalActive} />*/}
-
+            {/**/}
+            <Filter active={modalActive} setActive={setModalActive}/>
         </div>
     );
 }
