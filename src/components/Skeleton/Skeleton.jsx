@@ -9,14 +9,13 @@ function Skeleton(props) {
     return (
         <div>
             <div className={styles.appWrapper}>
-                <NavigationBar toggleIsAlphabetically={props.toggleIsAlphabetically}/>
+                <NavigationBar toggleFilterMode={props.toggleFilterMode}/>
                 <div className={styles.appWrapperContent}>
-
                     {props.isError
                         ? <CriticalError/>
                         : ((props.users.length === 0) ? <LoadingWorkersList/> : (<OutWorkersList users={props.users}
                           profile={props.profile} setUserProfile={props.setUserProfile}
-                          isAlphabetically={props.isAlphabetically}
+                          filterMode={props.filterMode}
                         />))
                     }
 

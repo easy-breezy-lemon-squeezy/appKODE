@@ -1,7 +1,7 @@
 import React from 'react';
 import Skeleton from "./Skeleton";
 import {connect} from "react-redux";
-import {getUsers, setUserProfile, toggleIsAlphabetically} from "../../redux/users-reducer";
+import {getUsers, setUserProfile, toggleFilterMode} from "../../redux/users-reducer";
 
 
 class SkeletonContainer extends React.Component{
@@ -13,8 +13,8 @@ class SkeletonContainer extends React.Component{
         return (
             <Skeleton users={this.props.users} isError={this.props.isError} profile={this.props.profile}
                       setUserProfile={this.props.setUserProfile}
-                      isAlphabetically={this.props.isAlphabetically}
-                      toggleIsAlphabetically={this.props.toggleIsAlphabetically}
+                      filterMode={this.props.filterMode}
+                      toggleFilterMode={this.props.toggleFilterMode}
             />
         );
     }
@@ -26,8 +26,8 @@ let mapStateToProps = (state) => {
         users: state.usersPage.users,
         isError: state.usersPage.isError,
         profile: state.usersPage.profile,
-        isAlphabetically: state.usersPage.isAlphabetically
+        filterMode: state.usersPage.filterMode
     }
 }
 
-export default connect(mapStateToProps, {getUsers, setUserProfile, toggleIsAlphabetically})(SkeletonContainer);
+export default connect(mapStateToProps, {getUsers, setUserProfile, toggleFilterMode})(SkeletonContainer);

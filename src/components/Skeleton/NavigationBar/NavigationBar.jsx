@@ -6,7 +6,7 @@ function NavigationBar(props) {
 
     return (
         <div className={styles.barWrapper}>
-            <Search toggleIsAlphabetically={props.toggleIsAlphabetically}/>
+            <Search toggleFilterMode={props.toggleFilterMode}/>
             <TabsPanel/>
         </div>
     );

@@ -4,13 +4,13 @@ import React from "react";
 const SET_USERS = 'SET_USERS';
 const TOGGLE_IS_ERROR = 'TOGGLE_IS_ERROR';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
-const TOGGLE_IS_ALPHABETICALLY = 'TOGGLE_IS_ALPHABETICALLY';
+const TOGGLE_FILTER_MODE = 'TOGGLE_FILTER_MODE';
 
 let initialState = {
     users: [],
     isError: false,
     profile: [],
-    isAlphabetically: false
+    filterMode: ''
 }
 const usersReducer = (state = initialState, action) => {
     switch (action.type){
@@ -23,8 +23,8 @@ const usersReducer = (state = initialState, action) => {
         case SET_USER_PROFILE:{
             return {...state, profile: action.profile}
         }
-        case TOGGLE_IS_ALPHABETICALLY:{
-            return {...state, isAlphabetically: true}
+        case TOGGLE_FILTER_MODE:{
+            return {...state, filterMode: action.filterMode}
         }
         default:
             return state;
@@ -34,7 +34,7 @@ const usersReducer = (state = initialState, action) => {
 export const setUsers = (users) => ({type: SET_USERS, users})
 export const toggleIsError = () => ({type: TOGGLE_IS_ERROR})
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
-export const toggleIsAlphabetically = (mode) => ({type: TOGGLE_IS_ALPHABETICALLY, isAlphabetically:mode})
+export const toggleFilterMode = (filterMode) => ({type: TOGGLE_FILTER_MODE, filterMode})
 
 export const getUsers = () => async(dispatch) => {
         try {

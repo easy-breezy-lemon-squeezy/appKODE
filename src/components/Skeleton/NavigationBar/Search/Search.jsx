@@ -7,7 +7,7 @@ function Search(props) {
         <div>
             <div className={styles.search}>
                 <div className={styles.text}>Поиск</div>
-                <SearchInput toggleIsAlphabetically={props.toggleIsAlphabetically}/>
+                <SearchInput toggleFilterMode={props.toggleFilterMode}/>
             </div>
         </div>
     );

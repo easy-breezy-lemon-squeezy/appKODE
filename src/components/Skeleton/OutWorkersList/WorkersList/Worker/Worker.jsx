@@ -3,7 +3,6 @@ import styles from "./Worker.module.css";
 import {NavLink} from "react-router-dom";
 
 function Worker(props) {
-
     return (
 
         <div className={styles.worker}>
@@ -22,6 +21,7 @@ function Worker(props) {
                     </NavLink>
                     <div className={styles.department}>
                         <p>{props.user.department} </p>
+                        <p>{props.user.birthday}</p>
                     </div>
                 </div>
 
