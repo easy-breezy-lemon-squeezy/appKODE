@@ -1,7 +1,7 @@
 import React from 'react';
 import Skeleton from "./Skeleton";
 import {connect} from "react-redux";
-import {activateModalWindow, deactivateModalWindow, getUsers, setUserProfile} from "../../redux/users-reducer";
+import {getUsers, setUserProfile, toggleIsAlphabetically} from "../../redux/users-reducer";
 
 
 class SkeletonContainer extends React.Component{
@@ -10,14 +10,11 @@ class SkeletonContainer extends React.Component{
     }
 
     render (){
-
         return (
             <Skeleton users={this.props.users} isError={this.props.isError} profile={this.props.profile}
                       setUserProfile={this.props.setUserProfile}
                       isAlphabetically={this.props.isAlphabetically}
-                      isActivateModalWindow={this.props.isActivateModalWindow}
-                      activateModalWindow={this.props.activateModalWindow}
-                      deactivateModalWindow={this.props.deactivateModalWindow}
+                      toggleIsAlphabetically={this.props.toggleIsAlphabetically}
             />
         );
     }
@@ -29,9 +26,8 @@ let mapStateToProps = (state) => {
         users: state.usersPage.users,
         isError: state.usersPage.isError,
         profile: state.usersPage.profile,
-        isAlphabetically:state.usersPage.isAlphabetically,
-        isActivateModalWindow:state.usersPage.isActivateModalWindow
+        isAlphabetically: state.usersPage.isAlphabetically
     }
 }
 
-export default connect(mapStateToProps, {getUsers, setUserProfile, activateModalWindow,deactivateModalWindow})(SkeletonContainer);
+export default connect(mapStateToProps, {getUsers, setUserProfile, toggleIsAlphabetically})(SkeletonContainer);

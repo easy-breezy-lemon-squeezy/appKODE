@@ -7,7 +7,7 @@ function Search(props) {
         <div>
             <div className={styles.search}>
                 <div className={styles.text}>Поиск</div>
-                <SearchInput activateModalWindow={props.activateModalWindow}/>
+                <SearchInput toggleIsAlphabetically={props.toggleIsAlphabetically}/>
             </div>
         </div>
     );

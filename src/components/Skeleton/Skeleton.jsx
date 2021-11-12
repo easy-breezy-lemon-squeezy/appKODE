@@ -2,24 +2,21 @@ import React from 'react';
 import NavigationBar from "./NavigationBar/NavigationBar";
 import styles from "./Skeleton.module.css"
 import LoadingWorkersList from "./LoadingWorkersList/LoadingWorkersList";
-import WorkersList from "./WorkersList/WorkersList";
 import CriticalError from "./CriticalError/CriticalError";
-
+import OutWorkersList from "./OutWorkersList/OutWorkersList";
 
 function Skeleton(props) {
     return (
         <div>
             <div className={styles.appWrapper}>
-                <NavigationBar activateModalWindow={props.activateModalWindow}/>
+                <NavigationBar toggleIsAlphabetically={props.toggleIsAlphabetically}/>
                 <div className={styles.appWrapperContent}>
 
                     {props.isError
                         ? <CriticalError/>
-                        : ((props.users.length === 0) ? <LoadingWorkersList/> : (<WorkersList users={props.users}
+                        : ((props.users.length === 0) ? <LoadingWorkersList/> : (<OutWorkersList users={props.users}
                           profile={props.profile} setUserProfile={props.setUserProfile}
                           isAlphabetically={props.isAlphabetically}
-                          isActivateModalWindow={props.isActivateModalWindow}
-                          deactivateModalWindow={props.deactivateModalWindow}
                         />))
                     }
 
