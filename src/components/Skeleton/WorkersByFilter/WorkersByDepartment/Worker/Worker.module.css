@@ -16,6 +16,7 @@
 
 .infoWorker{
     margin: 16px;
+    width:1156px;
 }
 .name{
     display:flex;
@@ -58,4 +59,17 @@
     flex: none;
     order: 1;
     flex-grow: 0;
+}
+.bithText p{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 20px;
+    text-align: right;
+    color: #55555C;
+}
+.bithText{
+    display: block;
+    height: 20px;
+    margin: 0px 4px 0px auto;
 }

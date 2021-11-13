@@ -5,12 +5,14 @@ const SET_USERS = 'SET_USERS';
 const TOGGLE_IS_ERROR = 'TOGGLE_IS_ERROR';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const TOGGLE_FILTER_MODE = 'TOGGLE_FILTER_MODE';
+const SET_SEARCH_TEXT = 'SET_SEARCH_TEXT';
 
 let initialState = {
     users: [],
     isError: false,
     profile: [],
-    filterMode: ''
+    filterMode: '',
+    searchText: ''
 }
 const usersReducer = (state = initialState, action) => {
     switch (action.type){
@@ -26,6 +28,9 @@ const usersReducer = (state = initialState, action) => {
         case TOGGLE_FILTER_MODE:{
             return {...state, filterMode: action.filterMode}
         }
+        case SET_SEARCH_TEXT:{
+            return {...state, searchText: action.searchText}
+        }
         default:
             return state;
     }
@@ -35,6 +40,7 @@ export const setUsers = (users) => ({type: SET_USERS, users})
 export const toggleIsError = () => ({type: TOGGLE_IS_ERROR})
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 export const toggleFilterMode = (filterMode) => ({type: TOGGLE_FILTER_MODE, filterMode})
+export const setSearchText = (searchText) => ({type: SET_SEARCH_TEXT, searchText})
 
 export const getUsers = () => async(dispatch) => {
         try {

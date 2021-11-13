@@ -1,9 +1,9 @@
 import React, {useState} from "react";
-import styles from "./Forms.module.css";
-import filter from "../../../images/icons/filtr.svg";
-import search from "../../../images/icons/search.svg";
+import styles from "./SearchForm.module.css";
+import filter from "../../../../../images/icons/filtr.svg";
+import search from "../../../../../images/icons/search.svg";
 import ReactModal from 'react-modal';
-import close from "../../../images/icons/close.svg";
+import close from "../../../../../images/icons/close.svg";
 
 export const SearchInput = (props) => {
     const [showModal, setShowModal] = useState(false);
@@ -13,6 +13,17 @@ export const SearchInput = (props) => {
     function handleCloseModal (){
         setShowModal(false);
     }
+
+    const [value, setValue] = useState("Введи имя, тег, почту...");
+    function handleChange(event) {
+        setValue(event.target.value);
+        props.toggleFilterMode('bySearch')
+        props.setSearchText(event.target.value)
+    }
+    function handleFocus(event) {
+        setValue(' ');
+    }
+
     const toggleCheckbox = (mode) => {
         function func() {
             return new Promise(resolve => setTimeout(() => {
@@ -29,7 +40,7 @@ export const SearchInput = (props) => {
                 <div className={styles.search}>
                     <img src={search}/>
                 </div>
-                <input type="search" name="search" type="text" placeholder="Введи имя, тег, почту..."/>
+                <input onChange={handleChange} onFocus={handleFocus} type="text" value={value} />
 
                 <div onClick={handleOpenModal} className={styles.filter}>
                     <img src={filter}/>

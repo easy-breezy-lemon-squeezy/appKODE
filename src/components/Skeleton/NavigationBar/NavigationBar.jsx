@@ -6,7 +6,7 @@ function NavigationBar(props) {
 
     return (
         <div className={styles.barWrapper}>
-            <Search toggleFilterMode={props.toggleFilterMode}/>
+            <Search toggleFilterMode={props.toggleFilterMode} setSearchText={props.setSearchText}/>
             <TabsPanel/>
         </div>
     );

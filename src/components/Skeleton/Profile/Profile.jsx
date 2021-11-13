@@ -6,8 +6,8 @@ import favorite from "../../../images/icons/favorite.svg";
 import {NavLink,Navigate} from "react-router-dom";
 
 function Profile(props) {
-
-    if (props.profile.length === 0 || props.profile === null){
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    if (props.profile.length === 0){
         return (
             <><Navigate to="/" /></>
         )
@@ -33,8 +33,11 @@ function Profile(props) {
             <div className={styles.contactsBlock}>
                 <div className={styles.birthday}>
                     <img src={favorite}/>
-                    <p>{props.profile.birthday}</p>
-                    <div className={styles.age}><p>{props.profile.birthday} years</p></div>
+                    <p>{new Date(props.profile.birthday).getDate() + " " + months[new Date(props.profile.birthday).getMonth()] +
+                     " " + new Date(props.profile.birthday).getFullYear()}</p>
+                    <div className={styles.age}>
+                        <p>{(new Date().getFullYear()) - (new Date(props.profile.birthday).getFullYear())} years</p>
+                    </div>
                 </div>
                 <div className={styles.number}>
                     <img src={number}/><p>{props.profile.phone}</p>
