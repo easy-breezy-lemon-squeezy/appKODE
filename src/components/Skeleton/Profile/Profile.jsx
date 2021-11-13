@@ -7,7 +7,7 @@ import {NavLink,Navigate} from "react-router-dom";
 
 function Profile(props) {
 
-    if (props.profile.length === 0){
+    if (props.profile.length === 0 || props.profile === null){
         return (
             <><Navigate to="/" /></>
         )

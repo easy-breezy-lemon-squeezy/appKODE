@@ -3,8 +3,8 @@ import styles from "./Worker.module.css";
 import {NavLink} from "react-router-dom";
 
 function Worker(props) {
-    return (
 
+    return (
         <div className={styles.worker}>
             <div className={styles.workerWrapper} >
                 <div className={styles.imageWorker}>

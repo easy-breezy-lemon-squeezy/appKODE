@@ -13,7 +13,7 @@ export const SearchInput = (props) => {
     function handleCloseModal (){
         setShowModal(false);
     }
-    const toggleCheckbox = () => {
+    const toggleCheckbox = (mode) => {
         function func() {
             return new Promise(resolve => setTimeout(() => {
                 resolve();
@@ -21,7 +21,7 @@ export const SearchInput = (props) => {
             }, 1000));
         }
         func().then(() => (
-            props.toggleFilterMode('alphabetically')));
+            props.toggleFilterMode(mode)));
     }
     return (
         <div className={styles.inputSearch} >
@@ -40,10 +40,10 @@ export const SearchInput = (props) => {
                     </div>
                     <div className={styles.typesFilter}>
                         <div className={styles.formRadio}>
-                            <input type="radio" name="rb" id="rb1" onChange={toggleCheckbox}/> <label htmlFor="rb1"><span>По алфавиту</span></label>
+                            <input type="radio" name="rb" id="rb1" onChange={() => {toggleCheckbox('alphabetically')}}/> <label htmlFor="rb1"><span>По алфавиту</span></label>
                         </div>
                         <div className={styles.formRadio}>
-                            <input type="radio" name="rb" id="rb2"/> <label htmlFor="rb2"><span>По дню рождения</span></label>
+                            <input type="radio" name="rb" id="rb2" onChange={() => {toggleCheckbox('byBirthday')}}/> <label htmlFor="rb2"><span>По дню рождения</span></label>
                         </div>
                     </div>
                 </ReactModal>

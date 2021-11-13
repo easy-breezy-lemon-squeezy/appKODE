@@ -6,8 +6,8 @@ function TabsPanel() {
     return (
         <div className={styles.panel}>
             <NavLink to="/"><span>Все</span></NavLink>
-            <NavLink to="/designers"><span>Designers</span></NavLink>
-            <NavLink to="/analysts"><span>Analysts</span></NavLink>
+            <NavLink to="/design"><span>Designers</span></NavLink>
+            <NavLink to="/analytics"><span>Analysts</span></NavLink>
             <NavLink to="/frontend"><span>Frontend</span></NavLink>
             <NavLink to="/backend"><span>Backend</span></NavLink>
             <NavLink to="/ios"><span>IOS</span></NavLink>

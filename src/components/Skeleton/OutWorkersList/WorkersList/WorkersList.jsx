@@ -1,55 +1,79 @@
 import Worker from "./Worker/Worker";
 import React from "react";
-import styles from "../OutWorkersList.module.css";
+import styles from "./WorkersList.module.css";
 import {Route, Routes} from "react-router-dom";
 import Profile from "../../Profile/Profile";
 
+function WorkersList(props) {
+    const departments = ['design','analytics','frontend', 'backend','ios', 'android', 'qa', 'hr','management',
+        'back_office','support', 'pr']
+    return (
+        <div className={styles.workerList}>
+            <Routes>
+                <Route path="/" element={<AllUsers users={props.users} mode={props.mode} setUserProfile={props.setUserProfile}/>}/>
+                {departments.map((item,i) =>
+                    <Route key={i} path={"/" + item} element={
+                        <FilterDepartment users={props.users} department={item}
+                                          mode={props.mode} setUserProfile={props.setUserProfile}/>}/>)}
+                <Route path="/profile" element={<Profile profile={props.profile}/>}/>
+            </Routes>
+        </div>
+    );
+
+ }
+
 const AllUsers = (props) => {
+    if (props.mode === 'byBirthday') {
+        return <DivideByNextYear users={props.users}/>
+    }
     return (<div>{props.users.map(u => <Worker key={u.id} user={u} setUserProfile={props.setUserProfile}/>)}</div>)
 }
 const FilterDepartment = (props) => {
+    if (props.mode === 'byBirthday') {
+        const users = props.users.filter(item => item.department.includes(props.department))
+        return (<DivideByNextYear users={users}/>)
+
+    }
     return (<div>{props.users.filter(item =>
         item.department.includes(props.department)).map(item =>
         <Worker key={item.id} user={item} setUserProfile={props.setUserProfile}/>
     )} </div>)
 }
 
-function WorkersList(props) {
+const DivideByNextYear = (props) => {
+    let currentMonth = new Date().getMonth()
+    let currentDate = new Date().getDate()
+    let currentYears=[]
+    let nextYears=[]
 
-    return (
-        <div className={styles.workerList}>
-
-            <Routes>
-                <Route path="/" element={<AllUsers users={props.users} setUserProfile={props.setUserProfile}/>}/>
-                <Route path="/designers" element={<FilterDepartment users={props.users} department={'design'}
-                                                               setUserProfile={props.setUserProfile}/>}/>
-                <Route path="/analysts" element={<FilterDepartment users={props.users} department={'analytics'}
-                                                              setUserProfile={props.setUserProfile}/>}/>
-                <Route path="/frontend" element={<FilterDepartment users={props.users} department={'frontend'}
-                                                              setUserProfile={props.setUserProfile}/>}/>
-                <Route path="/backend" element={<FilterDepartment users={props.users} department={'backend'}
-                                                             setUserProfile={props.setUserProfile}/>}/>
-                <Route path="/ios" element={<FilterDepartment users={props.users} department={'ios'}
-                                                         setUserProfile={props.setUserProfile}/>}/>
-                <Route path="/android" element={<FilterDepartment users={props.users} department={'android'}
-                                                             setUserProfile={props.setUserProfile}/>}/>
-                <Route path="/qa" element={<FilterDepartment users={props.users} department={'qa'}
-                                                        setUserProfile={props.setUserProfile}/>}/>
-                <Route path="/hr" element={<FilterDepartment users={props.users} department={'hr'}
-                                                        setUserProfile={props.setUserProfile}/>}/>
-                <Route path="/management" element={<FilterDepartment users={props.users} department={'management'}
-                                                                setUserProfile={props.setUserProfile}/>}/>
-                <Route path="/back_office" element={<FilterDepartment users={props.users} department={'back_office'}
-                                                                 setUserProfile={props.setUserProfile}/>}/>
-                <Route path="/support" element={<FilterDepartment users={props.users} department={'support'}
-                                                             setUserProfile={props.setUserProfile}/>}/>
-                <Route path="/pr" element={<FilterDepartment users={props.users} department={'pr'}
-                                                        setUserProfile={props.setUserProfile}/>}/>
-                <Route path="/profile" element={<Profile profile={props.profile}/>}/>
-            </Routes>
-        </div>
-    );
-
+    for(let item of props.users){
+        item.monthBirthday=new Date(item.birthday).getMonth()
+        item.dateBirthday=new Date(item.birthday).getDate()
+        if (item.monthBirthday>currentMonth){
+            currentYears.push(item)
+        }else if (item.monthBirthday===currentMonth){
+            if( item.dateBirthday>currentDate){
+                currentYears.push(item)
+            } else {
+                nextYears.push(item)
+            }
+        } else {
+            nextYears.push(item)
+        }
+    }
+    const users = []
+    for (let item of currentYears) {
+        users.push(<Worker key={item.id} user={item} setUserProfile={props.setUserProfile}/>)
+    }
+    users.push(
+        <div className={styles.divideYear}>
+            <div className={styles.line}/>
+            <div className={styles.yearText}><p>{(new Date().getFullYear() + 1).toString()}</p></div>
+            <div className={styles.line}/>
+        </div>)
+    for (let item of nextYears) {
+        users.push(<Worker key={item.id} user={item} setUserProfile={props.setUserProfile}/>)
+    }
+    return users
 }
-
 export default WorkersList;
