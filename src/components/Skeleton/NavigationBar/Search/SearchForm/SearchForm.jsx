@@ -45,7 +45,7 @@ export const SearchInput = (props) => {
                 <div onClick={handleOpenModal} className={styles.filter}>
                     <img src={filter}/>
                 </div>
-                <ReactModal isOpen={showModal} className={styles.Modal} overlayClassName={styles.Overlay}>
+                <ReactModal isOpen={showModal} ariaHideApp={false} className={styles.Modal} overlayClassName={styles.Overlay}>
                     <div className={styles.headerFilter}>
                         <h3>Сортировка</h3><div onClick={handleCloseModal} className={styles.closeCircle}><img src={close}/></div>
                     </div>

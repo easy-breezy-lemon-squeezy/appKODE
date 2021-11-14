@@ -1,24 +1,10 @@
 import React from 'react';
 import WorkersByDepartment from "./WorkersByDepartment/WorkersByDepartment";
-import {Navigate} from "react-router-dom";
 
 
 function WorkersByFilter(props) {
-    if (props.filterMode === 'alphabetically'){
-        const users = filterAlphabetically(props.users.items);
-        return (
-            <WorkersByDepartment users={users} setUserProfile={props.setUserProfile} profile={props.profile}/>
-        );
-    }
-    else if(props.filterMode === 'byBirthday') {
-        const users =  filterByBirthday(props.users.items);
-        return (
-            <WorkersByDepartment users={users} mode={'byBirthday'} setUserProfile={props.setUserProfile} profile={props.profile}/>
-        );
-    }
-    else if(props.filterMode === 'bySearch') {
-
-        const users = props.users.items
+    let users = props.users.items;
+    if (props.searchText!=="Введи имя, тег, почту..."&&props.searchText){
 
         const usersByFirstName = users.filter(item => item.firstName.toLowerCase().startsWith(props.searchText.toLowerCase()) &&
             item.firstName.toLowerCase().includes(props.searchText.toLowerCase()));
@@ -26,19 +12,26 @@ function WorkersByFilter(props) {
             item.lastName.toLowerCase().includes(props.searchText.toLowerCase()));
         const usersByUserTag = users.filter(item => item.userTag.toLowerCase().startsWith(props.searchText.toLowerCase())&&
             item.userTag.toLowerCase().includes(props.searchText.toLowerCase()));
-
         const usersArray =  usersByFirstName.concat(usersByLastName, usersByUserTag).flat();
         const uniq = [...new Set(usersArray)];
+        users = uniq
+    }
 
+    if (props.filterMode === 'alphabetically'){
+        users = filterAlphabetically(users)
         return (
-            <>
-                <WorkersByDepartment users={uniq} setUserProfile={props.setUserProfile} profile={props.profile} mode={'bySearch'}/>
-            </>
+            <WorkersByDepartment users={users} setUserProfile={props.setUserProfile} profile={props.profile}/>
+        );
+    }
+    else if(props.filterMode === 'byBirthday') {
+        users = filterByBirthday(users)
+        return (
+            <WorkersByDepartment users={users} mode={'byBirthday'} setUserProfile={props.setUserProfile} profile={props.profile}/>
         );
     }
     else{
         return (
-            <WorkersByDepartment users={props.users.items} setUserProfile={props.setUserProfile} profile={props.profile}/>
+            <WorkersByDepartment users={users} setUserProfile={props.setUserProfile} profile={props.profile}/>
         );
     }
 
@@ -68,10 +61,5 @@ const filterByBirthday = (users) =>{
 
     return users;
 }
-const filterBySearch = (users) => {
-    return users.sort(function(a, b){
-        if(a.firstName < b.firstName) { return -1; }
-        if(a.firstName > b.firstName) { return 1; }
-        return 0;})
-}
+
 export default WorkersByFilter;
