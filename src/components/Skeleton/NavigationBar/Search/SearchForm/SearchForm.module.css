@@ -1,5 +1,5 @@
 .inputSearch {
-    width:1248px;
+    max-width:1248px;
     height: 40px;
     background: #F7F7F8;
     border-radius: 16px;
@@ -33,6 +33,21 @@
     max-width:20px;
     max-height:20px;
 }
+.search svg{
+    fill:#C3C3C6;
+}
+.activeSearch svg{
+    fill: #050510;
+}
+.filter svg{
+    fill:#C3C3C6;
+}
+.activeFilter svg{
+    fill: #6534FF;
+}
+.activeFilter{
+    margin-left: auto;
+}
 .inputSearch input{
     border:none;
     background-color:#F7F7F8;
@@ -55,18 +70,21 @@
 
 
 .inputSearch input{
-    width: 1200px;
+    max-width: 1200px;
     height: 20px;
-    margin:2px 8px;
+    margin:0px 10px;
     font-style: normal;
     font-weight: 500;
     font-size: 15px;
     line-height: 20px;
     display: flex;
     align-items: center;
-    padding: 0px 8px;
+    caret-color: #6534FF;
+    caret-width:2px;
 }
-
+.inputSearch input:focus {
+    color: #050510;
+}
 .Modal {
     position: absolute;
     top:0;
@@ -224,3 +242,8 @@ input[type="radio"]:checked {
     display: none;
 }
 
+@media screen and (min-width: 20px) and (max-width: 1200px) {
+    .Modal {
+        margin-top: 30%;
+    }
+}

@@ -5,7 +5,7 @@
     margin: 0px auto;
 }
 .criticalError{
-    width:1280px;
+    max-width:1280px;
     margin: 12% auto;
 }
 .criticalError h3{

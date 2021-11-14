@@ -1,5 +1,5 @@
 .search{
-    width:1248px;
+    max-width:1248px;
     margin: 16px auto 0px auto;
 }
 .text{
@@ -11,4 +11,10 @@
     line-height: 28px;
     color: #050510;
     margin-left: 8px;
+}
+@media screen and (min-width: 20px) and (max-width: 1200px) {
+    .search {
+        margin: 1%;
+    }
+
 }

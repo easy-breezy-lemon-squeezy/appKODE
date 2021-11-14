@@ -1,7 +1,6 @@
 .profileWrapper{
     display:block;
-    min-width: 1280px;
-    height:auto;
+    min-height:900px;
     position:absolute;
     top: 0px;
     left: 0px;
@@ -25,7 +24,7 @@
     display:block;
     position: relative;
     max-width:480px;
-    margin-top: -20px;
+    margin-top: -15px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -76,6 +75,7 @@
     flex-grow: 0;
 }
 .nameProfile span{
+    align-self: flex-end;
     text-align: center;
     font-style: normal;
     font-weight: normal;
@@ -131,4 +131,13 @@
     line-height: 20px;
     text-align: right;
     color: #97979B;
+}
+@media screen and (min-width: 20px) and (max-width: 1200px) {
+    .profileWrapper{
+        max-width: 1280px;
+    }
+    .infoProfile{
+        height: auto;
+    }
+
 }

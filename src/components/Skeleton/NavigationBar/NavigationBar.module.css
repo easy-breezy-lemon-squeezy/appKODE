@@ -1,9 +1,10 @@
 .barWrapper{
     position:relative;
-    width:1280px;
+    max-width:1280px;
+    min-width: 284px;
     display: block;
     padding: 0px;
-    height: 152px;
+    min-height: 152px;
     background: #FFFFFF;
     border-bottom: solid 0.33px #C3C3C6;
 }

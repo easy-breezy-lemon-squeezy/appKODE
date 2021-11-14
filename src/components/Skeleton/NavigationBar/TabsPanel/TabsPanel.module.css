@@ -17,8 +17,19 @@
     line-height: 20px;
     font-style: normal;
 }
-@media screen and (min-width: 320px) and (max-width: 1200px) {
+@media screen and (min-width: 1px) and (max-width: 1200px) {
     .panel a{
-        margin-right: 1%;
+        min-height:20px;
+        padding:10px 10px 0px 10px;
+        height: 26px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .panel{
+        position: relative;
+        height: auto;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
