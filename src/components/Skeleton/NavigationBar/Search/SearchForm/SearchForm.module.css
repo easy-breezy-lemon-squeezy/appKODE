@@ -68,7 +68,6 @@
     color: #C3C3C6;
 }
 
-
 .inputSearch input{
     max-width: 1200px;
     height: 20px;
@@ -80,7 +79,6 @@
     display: flex;
     align-items: center;
     caret-color: #6534FF;
-    caret-width:2px;
 }
 .inputSearch input:focus {
     color: #050510;
