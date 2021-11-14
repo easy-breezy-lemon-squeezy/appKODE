@@ -21,7 +21,7 @@ export const SearchInput = (props) => {
         props.setSearchText(event.target.value)
     }
     function handleFocus(event) {
-        setValue(' ');
+        setValue('');
     }
 
     const toggleCheckbox = (mode) => {

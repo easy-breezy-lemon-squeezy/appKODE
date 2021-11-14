@@ -1,5 +1,6 @@
 import React from 'react';
 import WorkersByDepartment from "./WorkersByDepartment/WorkersByDepartment";
+import {Navigate} from "react-router-dom";
 
 
 function WorkersByFilter(props) {
@@ -16,9 +17,23 @@ function WorkersByFilter(props) {
         );
     }
     else if(props.filterMode === 'bySearch') {
-        const users = props.users.items.filter(item => item.firstName.toLowerCase().includes(props.searchText.toLowerCase()))
+
+        const users = props.users.items
+
+        const usersByFirstName = users.filter(item => item.firstName.toLowerCase().startsWith(props.searchText.toLowerCase()) &&
+            item.firstName.toLowerCase().includes(props.searchText.toLowerCase()));
+        const usersByLastName = users.filter(item => item.lastName.toLowerCase().startsWith(props.searchText.toLowerCase())&&
+            item.lastName.toLowerCase().includes(props.searchText.toLowerCase()));
+        const usersByUserTag = users.filter(item => item.userTag.toLowerCase().startsWith(props.searchText.toLowerCase())&&
+            item.userTag.toLowerCase().includes(props.searchText.toLowerCase()));
+
+        const usersArray =  usersByFirstName.concat(usersByLastName, usersByUserTag).flat();
+        const uniq = [...new Set(usersArray)];
+
         return (
-            <WorkersByDepartment users={users} setUserProfile={props.setUserProfile} profile={props.profile}/>
+            <>
+                <WorkersByDepartment users={uniq} setUserProfile={props.setUserProfile} profile={props.profile} mode={'bySearch'}/>
+            </>
         );
     }
     else{

@@ -1,10 +1,18 @@
 import Worker from "./Worker/Worker";
-import React from "react";
+import React, {useState} from "react";
 import styles from "./WorkersByDepartment.module.css";
 import {Route, Routes} from "react-router-dom";
 import Profile from "../../Profile/Profile";
+import { v4 as uuidv4 } from 'uuid';
 
 function WorkersByDepartment(props) {
+
+    if (props.mode === 'bySearch' && props.users.length === 0){
+        return (
+            <div>
+                Ошибка
+            </div>)
+    }
     const departments = ['design','analytics','frontend', 'backend','ios', 'android', 'qa', 'hr','management',
         'back_office','support', 'pr']
     return (
@@ -12,7 +20,7 @@ function WorkersByDepartment(props) {
             <Routes>
                 <Route path="/" element={<AllUsers users={props.users} mode={props.mode} setUserProfile={props.setUserProfile}/>}/>
                 {departments.map((item,i) =>
-                    <Route key={i} path={"/" + item} element={
+                    <Route key={uuidv4()} path={"/" + item} element={
                         <FilterDepartment users={props.users} department={item}
                                           mode={props.mode} setUserProfile={props.setUserProfile}/>}/>)}
                 <Route path="/profile" element={<Profile profile={props.profile}/>}/>
@@ -26,7 +34,7 @@ const AllUsers = (props) => {
     if (props.mode === 'byBirthday') {
         return <DivideByNextYear users={props.users} mode={props.mode} setUserProfile={props.setUserProfile}/>
     }
-    return (<div>{props.users.map(u => <Worker key={u.id} user={u} setUserProfile={props.setUserProfile}/>)}</div>)
+    return (<div>{props.users.map(u => <Worker key={uuidv4()} user={u} setUserProfile={props.setUserProfile}/>)}</div>)
 }
 const FilterDepartment = (props) => {
     if (props.mode === 'byBirthday') {
@@ -36,7 +44,7 @@ const FilterDepartment = (props) => {
     }
     return (<div>{props.users.filter(item =>
         item.department.includes(props.department)).map(item =>
-        <Worker key={item.id} user={item} setUserProfile={props.setUserProfile}/>
+        <Worker key={uuidv4()} user={item} setUserProfile={props.setUserProfile}/>
     )} </div>)
 }
 
@@ -63,7 +71,7 @@ const DivideByNextYear = (props) => {
     }
     const users = []
     for (let item of currentYears) {
-        users.push(<Worker key={item.id} user={item} setUserProfile={props.setUserProfile} mode={props.mode}/>)
+        users.push(<Worker key={uuidv4()} user={item} setUserProfile={props.setUserProfile} mode={props.mode}/>)
     }
     users.push(
         <div className={styles.divideYear}>
@@ -72,7 +80,7 @@ const DivideByNextYear = (props) => {
             <div className={styles.line}/>
         </div>)
     for (let item of nextYears) {
-        users.push(<Worker key={item.id} user={item} setUserProfile={props.setUserProfile} mode={props.mode}/>)
+        users.push(<Worker key={uuidv4()} user={item} setUserProfile={props.setUserProfile} mode={props.mode}/>)
     }
     return users
 }
