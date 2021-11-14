@@ -17,6 +17,9 @@
     line-height: 20px;
     font-style: normal;
 }
+.panel a span{
+    vertical-align: middle;
+}
 @media screen and (min-width: 1px) and (max-width: 1200px) {
     .panel a{
         min-height:20px;
