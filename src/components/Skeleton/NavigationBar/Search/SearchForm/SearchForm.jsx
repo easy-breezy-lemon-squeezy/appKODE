@@ -38,16 +38,16 @@ export const SearchInput = (props) => {
         <div className={styles.inputSearch} >
             <div className={styles.inputWrapper}>
                 <div className={styles.search}>
-                    <img src={search}/>
+                    <img src={search} alt={''}/>
                 </div>
                 <input onChange={handleChange} onFocus={handleFocus} type="text" value={value} />
 
                 <div onClick={handleOpenModal} className={styles.filter}>
-                    <img src={filter}/>
+                    <img src={filter} alt={''}/>
                 </div>
                 <ReactModal isOpen={showModal} ariaHideApp={false} className={styles.Modal} overlayClassName={styles.Overlay}>
                     <div className={styles.headerFilter}>
-                        <h3>Сортировка</h3><div onClick={handleCloseModal} className={styles.closeCircle}><img src={close}/></div>
+                        <h3>Сортировка</h3><div onClick={handleCloseModal} className={styles.closeCircle}><img src={close} alt={''}/></div>
                     </div>
                     <div className={styles.typesFilter}>
                         <div className={styles.formRadio}>

@@ -17,13 +17,13 @@ function Profile(props) {
             <div className={styles.profileHeader}>
                 <div className={styles.backButton}>
                     <NavLink to={"/"}>
-                         <img src={right}/>
+                         <img src={right} alt={''}/>
                     </NavLink>
                 </div>
                 <div className={styles.infoProfile}>
-                    <img src={props.profile.avatarUrl} />
+                    <img src={props.profile.avatarUrl} alt={''}/>
                     <div className={styles.nameProfile}>
-                        <h3>{props.profile.firstName} {props.profile.lastName}<span>{props.profile.userTag}</span></h3>
+                        <h3>{props.profile.firstName} {props.profile.lastName}<span>{props.profile.userTag.toLowerCase()}</span></h3>
                     </div>
                     <div className={styles.departmentProfile}>
                         <p>{props.profile.department}</p>
@@ -32,7 +32,7 @@ function Profile(props) {
             </div>
             <div className={styles.contactsBlock}>
                 <div className={styles.birthday}>
-                    <img src={favorite}/>
+                    <img src={favorite} alt={''}/>
                     <p>{new Date(props.profile.birthday).getDate() + " " + months[new Date(props.profile.birthday).getMonth()] +
                      " " + new Date(props.profile.birthday).getFullYear()}</p>
                     <div className={styles.age}>
@@ -40,7 +40,7 @@ function Profile(props) {
                     </div>
                 </div>
                 <div className={styles.number}>
-                    <img src={number}/><p>{props.profile.phone}</p>
+                    <img src={number} alt={''}/><p>{props.profile.phone}</p>
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styles from "./Worker.module.css";
 import {NavLink} from "react-router-dom";
 
@@ -9,7 +9,7 @@ function Worker(props) {
              <div className={styles.workerWrapper} >
                  <div className={styles.imageWorker}>
                      <NavLink to="/profile" onClick={() => props.setUserProfile(props.user)}>
-                         <img src={props.user.avatarUrl}/>
+                         <img src={props.user.avatarUrl} alt={''}/>
                      </NavLink>
 
                  </div>

@@ -1,17 +1,14 @@
 import Worker from "./Worker/Worker";
-import React, {useState} from "react";
+import React from "react";
 import styles from "./WorkersByDepartment.module.css";
 import {Route, Routes} from "react-router-dom";
 import Profile from "../../Profile/Profile";
 import { v4 as uuidv4 } from 'uuid';
+import NothingFound from "../../NothingFound/NothingFound";
 
 function WorkersByDepartment(props) {
-
-    if (props.mode === 'bySearch' && props.users.length === 0){
-        return (
-            <div>
-                Ошибка
-            </div>)
+    if (props.users.length === 0){
+        return <NothingFound/>
     }
     const departments = ['design','analytics','frontend', 'backend','ios', 'android', 'qa', 'hr','management',
         'back_office','support', 'pr']

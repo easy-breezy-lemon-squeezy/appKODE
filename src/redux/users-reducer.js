@@ -1,5 +1,4 @@
 import axios from "axios";
-import React from "react";
 
 const SET_USERS = 'SET_USERS';
 const TOGGLE_IS_ERROR = 'TOGGLE_IS_ERROR';
