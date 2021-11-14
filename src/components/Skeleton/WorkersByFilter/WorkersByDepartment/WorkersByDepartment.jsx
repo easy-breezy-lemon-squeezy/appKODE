@@ -71,7 +71,7 @@ const DivideByNextYear = (props) => {
         users.push(<Worker key={uuidv4()} user={item} setUserProfile={props.setUserProfile} mode={props.mode}/>)
     }
     users.push(
-        <div className={styles.divideYear}>
+        <div key={uuidv4()} className={styles.divideYear}>
             <div className={styles.line}/>
             <div className={styles.yearText}><p>{(new Date().getFullYear() + 1).toString()}</p></div>
             <div className={styles.line}/>
