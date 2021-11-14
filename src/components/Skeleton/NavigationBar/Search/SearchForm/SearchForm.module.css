@@ -1,5 +1,6 @@
 .inputSearch {
     max-width:1248px;
+    min-width:350px;
     height: 40px;
     background: #F7F7F8;
     border-radius: 16px;
@@ -70,6 +71,7 @@
 
 .inputSearch input{
     max-width: 1200px;
+    min-width: 250px;
     height: 20px;
     margin:0px 10px;
     font-style: normal;

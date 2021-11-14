@@ -14,7 +14,7 @@ export const SearchInput = (props) => {
         setModeFilter(true)
     }
 
-    const [textSearch, setTextSearch] = useState("Введи имя, тег, почту...");
+    const [textSearch, setTextSearch] = useState("Введи имя, фамилию, никнейм...");
     const [modeSearch, setModeSearch] = useState(false);
     function handleChange(event) {
         setTextSearch(event.target.value);
