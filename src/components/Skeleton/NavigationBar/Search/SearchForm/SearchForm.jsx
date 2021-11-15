@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import styles from "./SearchForm.module.css";
 import ReactModal from 'react-modal';
 import close from "../../../../../images/icons/close.svg";
+import {useSelector} from "react-redux";
 
 export const SearchInput = (props) => {
     const [showModal, setShowModal] = useState(false);
@@ -38,7 +39,8 @@ export const SearchInput = (props) => {
         func().then(() => (
             props.toggleFilterMode(mode)));
     }
-
+    const typeFilter = useSelector(state => state.usersPage.filterMode)
+  
     return (
         <div className={styles.inputSearch} >
             <div className={styles.inputWrapper}>
@@ -60,10 +62,10 @@ export const SearchInput = (props) => {
                     </div>
                     <div className={styles.typesFilter}>
                         <div className={styles.formRadio}>
-                            <input type="radio" name="rb" id="rb1" onChange={() => {toggleCheckbox('alphabetically')}}/> <label htmlFor="rb1"><span>По алфавиту</span></label>
+                            <input type="radio" name="rb" id="rb1" defaultChecked={typeFilter==="alphabetically"?true:false} onChange={() => {toggleCheckbox('alphabetically')}}/> <label htmlFor="rb1"><span>По алфавиту</span></label>
                         </div>
                         <div className={styles.formRadio}>
-                            <input type="radio" name="rb" id="rb2" onChange={() => {toggleCheckbox('byBirthday')}}/> <label htmlFor="rb2"><span>По дню рождения</span></label>
+                            <input type="radio" name="rb" id="rb2" defaultChecked={typeFilter==="byBirthday"?true:false} onChange={() => {toggleCheckbox('byBirthday')}}/> <label htmlFor="rb2"><span>По дню рождения</span></label>
                         </div>
                     </div>
                 </ReactModal>
