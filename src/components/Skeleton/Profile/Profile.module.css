@@ -9,6 +9,9 @@
     bottom:0px;
     background-color:#FFFFFF;
 }
+.profileWrapper a{
+    text-decoration: none;
+}
 .profileHeader{
     display:block;
     position: relative;

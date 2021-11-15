@@ -48,6 +48,7 @@
 }
 .activeFilter{
     margin-left: auto;
+    cursor: pointer;
 }
 .inputSearch input{
     border:none;

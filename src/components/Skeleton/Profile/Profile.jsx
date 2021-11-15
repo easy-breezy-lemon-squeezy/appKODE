@@ -40,7 +40,7 @@ function Profile(props) {
                     </div>
                 </div>
                 <div className={styles.number}>
-                    <img src={number} alt={''}/><p>{props.profile.phone}</p>
+                    <img src={number} alt={''}/><a href={"tel:" + props.profile.phone}><p>{props.profile.phone}</p></a>
                 </div>
             </div>
         </div>
