@@ -18,7 +18,6 @@ export const SearchInput = (props) => {
     const [modeSearch, setModeSearch] = useState(false);
     function handleChange(event) {
         setTextSearch(event.target.value);
-        props.toggleFilterMode('bySearch')
         props.setSearchText(event.target.value)
     }
     function handleFocus(event) {
