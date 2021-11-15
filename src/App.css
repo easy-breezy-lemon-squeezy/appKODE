@@ -16,3 +16,13 @@ a.active{
   color: #050510;
   border-bottom: 2px solid #6534FF;
 }
+@media screen and (min-width: 20px) and (max-width: 1200px) {
+  a.active{
+    border-bottom: none;
+  }
+  a.active span{
+    color: #050510;
+    border-bottom: 2px solid #6534FF;
+    padding-bottom: 5px;
+  }
+}

@@ -29,6 +29,9 @@
         margin-right: 5px;
         margin-top: 5px;
     }
+    .panel{
+        margin-bottom: 10px;
+    }
     .panel.active a{
         padding:4px;
     }
