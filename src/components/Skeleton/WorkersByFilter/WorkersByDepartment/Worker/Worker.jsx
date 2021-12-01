@@ -9,18 +9,18 @@ function Worker(props) {
              <div className={styles.workerWrapper} >
                  <div className={styles.imageWorker}>
                      <NavLink to="/profile" onClick={() => props.setUserProfile(props.user)}>
-                         <img src={props.user.avatarUrl} alt={''}/>
+                         <img src={props.user.picture.large} alt={''}/>
                      </NavLink>
 
                  </div>
                  <div className={styles.infoWorker}>
                      <NavLink to="/profile" onClick={() => props.setUserProfile(props.user)}>
                          <div className={styles.name}>
-                             <h3>{props.user.firstName} {props.user.lastName} </h3>
-                             <p>{(props.user.userTag).toLowerCase()}</p>
+                             <h3>{props.user.name.first} {props.user.name.last} </h3>
+                             <p>{(props.user.name.last).toLowerCase()}</p>
                              <div className={styles.bithText}>
                                  <p>{props.mode === 'byBirthday' ?
-                                    new Date(props.user.birthday).getDate() + " " + months[new Date(props.user.birthday).getMonth()]: ""}
+                                    new Date(props.user.dob.date).getDate() + " " + months[new Date(props.user.dob.date).getMonth()]: ""}
                                  </p>
                              </div>
                         </div>

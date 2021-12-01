@@ -43,9 +43,15 @@ export const setSearchText = (searchText) => ({type: SET_SEARCH_TEXT, searchText
 
 export const getUsers = () => async(dispatch) => {
         try {
-            const users = await axios
-                .get(`https://stoplight.io/mocks/kode-education/trainee-test/25143926/users`)
+            let users = await axios
+                .get(`https://randomuser.me/api/?nat=us&results=50`)
                 .then(res => res.data)
+            const departments = ['design', 'analytics', 'frontend', 'backend', 'ios', 'android', 'qa', 'hr', 'management',
+                'back_office', 'support', 'pr']
+            users = users.results.map(function(user) {
+                user.department =departments[Math.floor(Math.random() * departments.length)]
+                return user
+            });
             dispatch(setUsers(users));
 
         }

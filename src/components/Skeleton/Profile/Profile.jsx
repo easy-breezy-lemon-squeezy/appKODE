@@ -21,9 +21,9 @@ function Profile(props) {
                     </NavLink>
                 </div>
                 <div className={styles.infoProfile}>
-                    <img src={props.profile.avatarUrl} alt={''}/>
+                    <img src={props.profile.picture.large} alt={''}/>
                     <div className={styles.nameProfile}>
-                        <h3>{props.profile.firstName} {props.profile.lastName}<span>{props.profile.userTag.toLowerCase()}</span></h3>
+                        <h3>{props.profile.name.first} {props.profile.name.last}<span>{props.profile.name.first.toLowerCase()}</span></h3>
                     </div>
                     <div className={styles.departmentProfile}>
                         <p>{props.profile.department}</p>
@@ -33,10 +33,10 @@ function Profile(props) {
             <div className={styles.contactsBlock}>
                 <div className={styles.birthday}>
                     <img src={favorite} alt={''}/>
-                    <p>{new Date(props.profile.birthday).getDate() + " " + months[new Date(props.profile.birthday).getMonth()] +
-                     " " + new Date(props.profile.birthday).getFullYear()}</p>
+                    <p>{new Date(props.profile.dob.date).getDate() + " " + months[new Date(props.profile.dob.date).getMonth()] +
+                     " " + new Date(props.profile.dob.date).getFullYear()}</p>
                     <div className={styles.age}>
-                        <p>{(new Date().getFullYear()) - (new Date(props.profile.birthday).getFullYear())} years</p>
+                        <p>{(new Date().getFullYear()) - (new Date(props.profile.dob.date).getFullYear())} years</p>
                     </div>
                 </div>
                 <div className={styles.number}>
